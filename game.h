@@ -18,7 +18,7 @@ public:
 
 class Knight : public Character {
 public:
-    Knight() { description = "Knight";}
+    Knight() { description = "Knight"; }
     int getAttack() const override;
     int getSpeed() const override;
     int getDefense() const override;
@@ -26,7 +26,7 @@ public:
 
 class Wizard : public Character {
 public:
-    Wizard() { description = "Wizard";}
+    Wizard() { description = "Wizard"; }
     int getAttack() const override; 
     int getSpeed() const override;
     int getDefense() const override;
@@ -34,7 +34,7 @@ public:
 
 class Archer : public Character {
 public:
-    Archer() { description = "Archer";}
+    Archer() { description = "Archer"; }
     int getAttack() const override; 
     int getSpeed() const override; 
     int getDefense() const override; 
@@ -63,7 +63,7 @@ public:
     string getDescription() const override; 
     int getAttack() const override; 
     int getSpeed() const override; 
-    int getDefense() const override;
+    int getDefense() const override; 
 };
 
 class Staff : public equip_testmentDecorator {
@@ -86,9 +86,9 @@ public:
 
 class Bow : public equip_testmentDecorator {
 public:
-    Bow(Character* c) : equip_testmentDecorator(c) {}
+    Bow(Character* c) : equip_testmentDecorator(c) { }
     string getDescription() const override; 
-    int getAttack() const override{return character->getAttack() + 25;}; 
+    int getAttack() const override; 
     int getSpeed() const override; 
     int getDefense() const override; 
 };

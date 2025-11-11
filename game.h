@@ -18,7 +18,7 @@ public:
 
 class Knight : public Character {
 public:
-    Knight() { description = "Knight"; }
+    Knight() { description = "Knight";}
     int getAttack() const override;
     int getSpeed() const override;
     int getDefense() const override;
@@ -26,7 +26,7 @@ public:
 
 class Wizard : public Character {
 public:
-    Wizard() { description = "Wizard"; }
+    Wizard() { description = "Wizard";}
     int getAttack() const override; 
     int getSpeed() const override;
     int getDefense() const override;
@@ -34,7 +34,7 @@ public:
 
 class Archer : public Character {
 public:
-    Archer() { description = "Archer"; }
+    Archer() { description = "Archer";}
     int getAttack() const override; 
     int getSpeed() const override; 
     int getDefense() const override; 
@@ -50,45 +50,55 @@ public:
 
 class Armor : public equip_testmentDecorator {
 public:
-    Armor(Character* c) : equip_testmentDecorator(c) {}
+    Armor(Character* c) : equip_testmentDecorator(c) {
+        description = c->getDescription();
+    }
     string getDescription() const override; 
     int getAttack() const override; 
-    int getSpeed() const override; 
-    int getDefense() const override; 
+    int getSpeed() const override{return character->getSpeed() - 5;}; 
+    int getDefense() const override{return character->getDefense() + 30;}; 
 };
 
 class Boots : public equip_testmentDecorator {
 public:
-    Boots(Character* c) : equip_testmentDecorator(c) {}
+    Boots(Character* c) : equip_testmentDecorator(c) {
+        description = c->getDescription(); 
+    }
     string getDescription() const override; 
     int getAttack() const override; 
-    int getSpeed() const override; 
-    int getDefense() const override; 
+    int getSpeed() const override{return character->getAttack() + 15;}; 
+    int getDefense() const override;
 };
 
 class Staff : public equip_testmentDecorator {
 public:
-    Staff(Character* c) : equip_testmentDecorator(c) {}
+    Staff(Character* c) : equip_testmentDecorator(c) {
+        description = c->getDescription();
+    }
     string getDescription() const override; 
-    int getAttack() const override; 
+    int getAttack() const override{return character->getAttack() + 20;}; 
     int getSpeed() const override; 
     int getDefense() const override; 
 };
 
 class Sword : public equip_testmentDecorator {
 public:
-    Sword(Character* c) : equip_testmentDecorator(c) {}
+    Sword(Character* c) : equip_testmentDecorator(c) {
+        description = c->getDescription();
+    }
     string getDescription() const override; 
-    int getAttack() const override; 
+    int getAttack() const override {return character->getAttack() + 30;}; 
     int getSpeed() const override; 
     int getDefense() const override; 
 };
 
 class Bow : public equip_testmentDecorator {
 public:
-    Bow(Character* c) : equip_testmentDecorator(c) { }
+    Bow(Character* c) : equip_testmentDecorator(c) { 
+        description = c->getDescription();
+    }
     string getDescription() const override; 
-    int getAttack() const override; 
+    int getAttack() const override{return character->getAttack() + 25;}; 
     int getSpeed() const override; 
     int getDefense() const override; 
 };

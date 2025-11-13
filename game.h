@@ -46,13 +46,15 @@ protected:
 public:
     equip_testmentDecorator(Character* c) : character(c) {}
     virtual ~equip_testmentDecorator() { delete character; }
+    int getAttack() const override; 
+    int getSpeed() const override; 
+    int getDefense() const override; 
 };
 
 class Armor : public equip_testmentDecorator {
 public:
     Armor(Character* c) : equip_testmentDecorator(c) {}
     string getDescription() const override; 
-    int getAttack() const override; 
     int getSpeed() const override; 
     int getDefense() const override; 
 };
@@ -61,9 +63,7 @@ class Boots : public equip_testmentDecorator {
 public:
     Boots(Character* c) : equip_testmentDecorator(c) {}
     string getDescription() const override; 
-    int getAttack() const override; 
     int getSpeed() const override; 
-    int getDefense() const override; 
 };
 
 class Staff : public equip_testmentDecorator {
@@ -71,8 +71,6 @@ public:
     Staff(Character* c) : equip_testmentDecorator(c) {}
     string getDescription() const override; 
     int getAttack() const override; 
-    int getSpeed() const override; 
-    int getDefense() const override; 
 };
 
 class Sword : public equip_testmentDecorator {
@@ -80,8 +78,6 @@ public:
     Sword(Character* c) : equip_testmentDecorator(c) {}
     string getDescription() const override; 
     int getAttack() const override; 
-    int getSpeed() const override; 
-    int getDefense() const override; 
 };
 
 class Bow : public equip_testmentDecorator {
@@ -89,6 +85,4 @@ public:
     Bow(Character* c) : equip_testmentDecorator(c) { }
     string getDescription() const override; 
     int getAttack() const override; 
-    int getSpeed() const override; 
-    int getDefense() const override; 
 };
